@@ -130,7 +130,8 @@ nav {
 }
 
 nav div img {
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 nav div li a {
@@ -154,7 +155,8 @@ nav div li {
 footer {
     color: white;
     background-color: black;
-    padding: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .home-picture {
