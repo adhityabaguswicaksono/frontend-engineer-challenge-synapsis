@@ -28,7 +28,7 @@
             <form class="">
                 <div class="text-qr gap">
                     <label for="textQR">Masukkan Kata/Kalimat</label><br>
-                    <input type="text" name="Text" id="textQR" required>
+                    <textarea type="text" name="Text" id="textQR" oninput="AutoExpand(this)"></textarea>
                 </div>
                 <div class="color-qr gap">
                     <label for="fillColor">Pilih Warna Dasar Kode QR</label><br>
@@ -54,8 +54,7 @@
         <div id="QRCodeSections" class="section-class text-center">
             <h3>Hasil Pembuatan Kode QR</h3>
             <div id="QRCodeSection">
-                <div id="QRCode"></div>
-                <div id="showTextQR"></div>
+                <div id="QRCode"></div><br>
                 <div id="actionButton">
                     <a id="linkDownloadButton">
                         <input type="button" value="Unduh Kode QR" id="downloadButton" onclick="DownloadQRCode()">

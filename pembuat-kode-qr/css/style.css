@@ -53,14 +53,15 @@ body {
     margin-bottom: 8px;
 }
 
-.text-qr input{
+.text-qr textarea{
     border: 1px solid var(--blue-primary);
     border-radius: 5px;
-    height: 25px;
+    resize: none;
+    height: 20px;
     width: 90%;
 }
 
-.text-qr input:focus{
+.text-qr textarea:focus{
     outline: none;
     border: 2px solid var(--blue-dark);
 }
@@ -108,6 +109,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#QRCode canvas {
+    display: none;
 }
 
 #QRCode img {
@@ -161,10 +166,6 @@ a {
 
 a:hover {
     color: var(--gray);
-}
-
-a:visited {
-    color: var(--white);
 }
 
 @media only screen and (min-width: 768px) {

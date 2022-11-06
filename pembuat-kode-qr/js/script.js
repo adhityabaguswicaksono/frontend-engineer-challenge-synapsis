@@ -1,27 +1,33 @@
-var QRCodeSection = document.getElementById("QRCodeSection");
-QRCodeSection.style.visibility = "hidden";
+document.addEventListener("DOMContentLoaded", function(){
+    let QRCodeSection = document.getElementById("QRCodeSection");
+    QRCodeSection.style.visibility = "hidden";
+});
+
+function AutoExpand(element) {
+    element.style.height = "0";
+    element.style.height = (element.scrollHeight) + "px";
+}
 
 function ResetButton() {
     window.location.reload();
 }
 
 function TextSizeQR(value) {
-    var TextSizeQR = document.getElementById("TextSizeQR");
+    let TextSizeQR = document.getElementById("TextSizeQR");
     TextSizeQR.innerHTML = `${value} x ${value} px`;
 }
 
 function GenerateQRCode() {
     event.preventDefault();
 
-    var QRCodeContainer = document.getElementById("QRCode");
-    var sizeQR = document.getElementById("sizeQR").value;
-    var textQR = document.getElementById("textQR").value;
-    var showTextQR = document.getElementById("showTextQR");
+    let QRCodeContainer = document.getElementById("QRCode");
+    let sizeQR = document.getElementById("sizeQR").value;
+    let textQR = document.getElementById("textQR").value;
+    let fillColor = document.getElementById("fillColor").value;
+    let boxColor = document.getElementById("boxColor").value;
+    let QRCodeSections = document.getElementById("QRCodeSections");
 
     if (textQR != "") {
-        var fillColor = document.getElementById("fillColor").value;
-        var boxColor = document.getElementById("boxColor").value;
-
         QRCodeContainer.innerHTML = "";
 
         new QRCode(QRCodeContainer, {
@@ -33,12 +39,9 @@ function GenerateQRCode() {
             correctLevel: QRCode.CorrectLevel.L
         });
 
-        showTextQR.innerHTML = `<p>Kata/Kalimat yang ditulis<br><strong>${textQR}</strong></p>`;
         QRCodeSection.style.visibility = "visible";
-        QRCodeContainer.children[0].remove();
         
         if(window.screen.width < 768){
-            var QRCodeSections = document.getElementById("QRCodeSections");
             QRCodeSections.scrollIntoView(true);
         }
     } else {
@@ -47,12 +50,12 @@ function GenerateQRCode() {
 }
 
 function DownloadQRCode() {
-    var QRCodeContainer = document.getElementById("QRCode");
-    var textQR = document.getElementById("textQR").value;
-    var image = QRCodeContainer.children[0].src;
-    var downloadButton = document.getElementById("downloadButton");
+    let QRCodeContainer = document.getElementById("QRCode");
+    let textQR = document.getElementById("textQR").value;
+    let image = QRCodeContainer.children[1].src;
+    let downloadButton = document.getElementById("downloadButton");
 
-    var linkDownloadButton = document.getElementById("linkDownloadButton");
+    let linkDownloadButton = document.getElementById("linkDownloadButton");
     linkDownloadButton.setAttribute("href", image);
     linkDownloadButton.setAttribute("download", `${textQR}` + " QRCode by Adhitya Bagus Wicaksono");
     linkDownloadButton.appendChild(downloadButton);
