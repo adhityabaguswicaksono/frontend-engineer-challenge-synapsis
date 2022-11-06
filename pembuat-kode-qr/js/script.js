@@ -51,12 +51,11 @@ function GenerateQRCode() {
 
 function DownloadQRCode() {
     let QRCodeContainer = document.getElementById("QRCode");
-    let textQR = document.getElementById("textQR").value;
     let image = QRCodeContainer.children[1].src;
     let downloadButton = document.getElementById("downloadButton");
 
     let linkDownloadButton = document.getElementById("linkDownloadButton");
     linkDownloadButton.setAttribute("href", image);
-    linkDownloadButton.setAttribute("download", `${textQR}` + " QRCode by Adhitya Bagus Wicaksono");
+    linkDownloadButton.setAttribute("download", "QRCode by Adhitya Bagus Wicaksono.png");
     linkDownloadButton.appendChild(downloadButton);
 }
