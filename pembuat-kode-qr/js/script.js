@@ -20,13 +20,14 @@ function TextSizeQR(value) {
 function GenerateQRCode() {
     event.preventDefault();
 
-    let QRCodeContainer = document.getElementById("QRCode");
-    let sizeQR = document.getElementById("sizeQR").value;
     let textQR = document.getElementById("textQR").value;
-    let fillColor = document.getElementById("fillColor").value;
-    let boxColor = document.getElementById("boxColor").value;
 
-    if (textQR != "") {
+    if (textQR) {
+        let QRCodeContainer = document.getElementById("QRCode");
+        let sizeQR = document.getElementById("sizeQR").value;
+        let fillColor = document.getElementById("fillColor").value;
+        let boxColor = document.getElementById("boxColor").value;
+        
         QRCodeContainer.innerHTML = "";
 
         new QRCode(QRCodeContainer, {
@@ -39,6 +40,7 @@ function GenerateQRCode() {
         });
 
         QRCodeSection.style.visibility = "visible";
+        QRCodeContainer.style.display = "block";
     } else {
         alert("Masukkan Kalimatnya dulu ya...");
     }
