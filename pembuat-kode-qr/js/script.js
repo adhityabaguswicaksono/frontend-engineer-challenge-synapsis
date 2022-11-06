@@ -25,7 +25,6 @@ function GenerateQRCode() {
     let textQR = document.getElementById("textQR").value;
     let fillColor = document.getElementById("fillColor").value;
     let boxColor = document.getElementById("boxColor").value;
-    let QRCodeSections = document.getElementById("QRCodeSections");
 
     if (textQR != "") {
         QRCodeContainer.innerHTML = "";
@@ -40,10 +39,6 @@ function GenerateQRCode() {
         });
 
         QRCodeSection.style.visibility = "visible";
-        
-        if(window.screen.width < 768){
-            QRCodeSections.scrollIntoView(true);
-        }
     } else {
         alert("Masukkan Kalimatnya dulu ya...");
     }
@@ -56,6 +51,6 @@ function DownloadQRCode() {
 
     let linkDownloadButton = document.getElementById("linkDownloadButton");
     linkDownloadButton.setAttribute("href", image);
-    linkDownloadButton.setAttribute("download", "QRCode by Adhitya Bagus Wicaksono.png");
+    linkDownloadButton.setAttribute("download", "Pembuat Kode QR - Adhitya Bagus Wicaksono.png");
     linkDownloadButton.appendChild(downloadButton);
 }
