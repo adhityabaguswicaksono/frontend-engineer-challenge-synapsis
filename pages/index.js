@@ -11,7 +11,7 @@ function HomePage ({dataBlogs, dataUsers}){
         </Head>
         <div>
             <h1>
-                Halo Semuanya!!!
+                Blog Posts
             </h1>
             <div>
             {dataBlogs.map((blog) => (
